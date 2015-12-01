@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/jquery11.js"></script>
+	    <script src="js/application.js" type="text/javascript"></script>
     </head>
     <body>
         
@@ -29,9 +31,12 @@
             <div class="card-content white-text">
               <span class="card-title">Sign Up</span>
                 <p>
+                   <div class="form-contact-info">
+		            <div class="error_msg" id="error_msg"></div>
+		            <form action="sign_up.html" method="get" >
                     <div class="row">
                         <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
+                        <input id="first_name" type="text" class="validate" >
                         <label for="first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
@@ -39,11 +44,12 @@
                         <label for="last_name">Last Name</label>
                         </div>
                         <div class="input-field col s6">
-                          <input id="usuario" type="text" class="validate">
+                          <input id="userame" type="text" value="" placeholder="Type your username" class="required" name="username">
+                          <span class="required">*</span>
                           <label for="usuario">Usuario</label>
                         </div>
                         <div class="input-field col s6">
-                          <input id="password" type="password" class="validate">
+                          <input id="password" type="password" class="validate" name="password">
                           <label for="password">Password</label>
                         </div>
                         <div class="row">
@@ -51,15 +57,22 @@
                         <input id="email" type="email" class="validate">
                         <label for="email">Email</label>
                         </div>
+                        </div>
+                        </form>
                         <div class="col s12">
-                            <a href="log_in.html" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                               right">play_arrow</i>Sign in</a>                         
+                            <!--<a href="log_in.html" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                               right">play_arrow</i>Sign in</a>--> 
+                            <input type="button" class="waves-effect waves-light btn orange darken-2"value="Add Client" id="save-client"                                     onclick="saveToLocalStorage($('input#username').val(),$('input#password').val());" /><i class="material-icons                                     right">play_arrow</i>                        
                         </div>
                     </div>
                 </p>
             </div>
             
       </div>
-
+    </div>
+    </div>
+       <script type="text/javascript">
+		loadUsers();
+	   </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/materialize.min.js"></script>
