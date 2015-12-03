@@ -7,11 +7,12 @@ if (!users) {
 
 function saveToLocalStorage(username, password) {
 	var user = {
-		"": username,
-        "lastname": ,
+		"username": username,
+        "lastname": lastname,
         "username": username,
-        "username": username,
-		"password": password,
+        "password": password,
+        "email": email
+        
 	};
 	users.push(user);
 
