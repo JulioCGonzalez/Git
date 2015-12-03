@@ -42,7 +42,7 @@ function validate(){
 var u = users;    
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-if ( username == u.username){
+if ( username == u.username && password == u.){
 alert ("Login successfully");
 window.location = "start_logueado"; // Redirecting to other page.
 return false;
