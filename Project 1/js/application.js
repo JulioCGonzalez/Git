@@ -5,7 +5,7 @@ if (!users) {
 }
 
 
-function saveToLocalStorage(name,lastname,username, password,email) {
+function saveToLocalStorage(name, lastname, username, password, email) {
 	var user = {
 		"name": name,
         "lastname": lastname,
@@ -42,7 +42,7 @@ function validate(){
 var u = users;    
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-if ( username == u.username && password == u.){
+if ( username == u.username && password == u.password){
 alert ("Login successfully");
 window.location = "start_logueado"; // Redirecting to other page.
 return false;

@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        
     </head>
     <body>
 
@@ -33,12 +34,12 @@
             </nav>
             <tr>
             <td>E-mail:</td>
-            <td><input type="email" name="correo" placeholder="Aqui@tucorreo.com" required></td>
+            <td><input type="email" id="email" name="correo" placeholder="Email" required></td>
             </tr>
 
             <tr>
             <td>Asunto:</td>
-            <td><textarea cols="17" rows="6" name="contenido" placeholder="Escribe Tu mensaje" required></textarea></td>
+            <td><textarea cols="17" rows="6"  id="asunto" name="contenido" placeholder="Asunto" required></textarea></td>
             </tr>
            
             <tr>
@@ -58,16 +59,16 @@
             
                     
             <form method="post" action="dump.php">
-            <textarea name="content"></textarea>
+            <textarea id="mensaje" placeholder="Mensaje" name="content"></textarea>
             </form>
             
             <div class="col s12">
-            <a href="enviados.html" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                   right">play_arrow</i>Enviar</a>                         
+            <a href="enviados.html" id="boton-guardar" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                   right">play_arrow</i>Enviar</a>                         
             </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/materialize.min.js"></script>
         <script src="js/main.js"></script>
-
+        <script src="js/mail.js"></script>
     </body>
 </html>
