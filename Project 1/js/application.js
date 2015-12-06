@@ -1,30 +1,31 @@
 $('#save_client').click(function() {
-  console.log('Registrar usuario');
-  var usuario = document.getElementById("email").value;
-  var contrasena = document.getElementById("password").value;
+  console.log('Sign_up');
+  var mail = document.getElementById("email").value;
+  var pass = document.getElementById("password").value;
 
-  if (usuario == '' || contrasena == '') {
+  if (mail == '' || pass == '') {
 
-    alert('LLene los campos');
+    alert('Fill the field');
     return;
   }
 
-  localStorage.setItem("email", usuario);
-  localStorage.setItem("password", contrasena);
-  location = "index.html"
+  localStorage.setItem("email",mail);
+  localStorage.setItem("password", pass);
+  
+    
+  window.location = "log_in.html"
 
 });
+$('#iniciar').click(function() {
 
-$('#iniciar_sesion').click(function() {
-
-  var user = document.getElementById("email").value;
+  var mail = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  var registroUser = localStorage.getItem("email");
-  var registroPass = localStorage.getItem("password");
-  if (user == registroUser && password == registroPass) {
-    return location = "principalM.html"
+  var logUser = localStorage.getItem("email");
+  var logPass = localStorage.getItem("password");
+  if (mail == logUser && password == logPass) {
+    return location = "menu.html"
   }
-  window.alert("Usuario/contraseña invalidos");
+  window.alert("Wrong password or username");
 });
 
 
