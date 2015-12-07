@@ -8,7 +8,10 @@
         <title>Email App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="ckeditor/ckeditor.js"></script>
+	    <script src="ckeditor/samples/js/sample.js"></script>
+	    <link rel="stylesheet" href="ckeditor/samples/css/samples.css">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
@@ -30,44 +33,47 @@
             </div>
             </nav>
             
-            <tr>
-            <td>E-mail:</td>
-            <td><input type="email" name="correo" placeholder="Aqui@tucorreo.com" required></td>
-            </tr>
-
-            <tr>
-            <td>Asunto:</td>
-            <td><textarea cols="17" rows="6" name="contenido" placeholder="Escribe Tu mensaje" required></textarea></td>
-            </tr>
-           
-            <tr>
-            <td>Su mensaje:</td>
-            </tr>
-            <script type="text/javascript">
-            tinymce.init({
-            selector: "textarea",
-            plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste"
-            ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent             indent | link image"
-            });
-            </script>
-
-            <form method="post" action="dump.php">
-            <textarea name="content"></textarea>
-            </form>   
-            
-                 
-            <div class="col s12">
-            <a href="salida.html" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                   right">play_arrow</i>Aceptar</a>                         
-            </div>     
+            <center>
+		<div class="row" id="para-asunto">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="destino" type="text" class="validate" value="">
+					<label for="destino">Para</label>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="asunto" type="text" class="validate" value="">
+						<label for="asunto">Asunto</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main>
+			<div id="main-editor">
+				<div class="grid-container">
+					<div class="grid-width-100">
+						<div id="editor">
+							<textarea class="form-control" rows="15"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				initSample();
+			</script>
+		</main>
+	</center>     
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/materialize.min.js"></script>
         <script src="js/main.js"></script>
+        <script>
+	   CKEDITOR.on("instanceReady", function()
+	   {
+		setEditarData();
+	   })
+</script>
 
     </body>
 </html>
