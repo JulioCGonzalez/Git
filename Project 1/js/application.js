@@ -2,41 +2,6 @@
 //////////////////////
 //////////////////////
 //////////////////////
-//////////////////////
-$('#save_client').click(function() {
-  console.log('Sign_up');
-  var mail = document.getElementById("email").value;
-  var pass = document.getElementById("password").value;
-
-  if (mail == '' || pass == '') {
-
-    alert('Fill the field');
-    return;
-  }
-
-  localStorage.setItem("email",mail);
-  localStorage.setItem("password", pass);
-  
-    
-  window.location = "log_in.html"
-
-});
-//////////////////////
-//////////////////////
-$('#iniciar').click(function() {
-
-  var mail = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var logUser = localStorage.getItem("email");
-  var logPass = localStorage.getItem("password");
-  if (mail == logUser && password == logPass) {
-    return location = "menu.html"
-  }
-  window.alert("Wrong password or username");
-});
-//////////////////////
-//////////////////////
-//////////////////////
 //Envia los correos
 $('#enviar_correo').click(function() {
   var addres = document.getElementById("correo_destino").value;
@@ -83,9 +48,9 @@ function getEnviados() {
   return enviados ? enviados : [];
 }
 
-function setEnviados(datos) {
+function setEnviados(data) {
   localStorage.setItem('enviados', JSON.stringify(
-    datos));
+    data));
 }
 
 function getSalida() {
@@ -93,9 +58,9 @@ function getSalida() {
   return salida ? salida : [];
 }
 
-function setSalida(datos) {
+function setSalida(data) {
   localStorage.setItem('salida', JSON.stringify(
-    datos));
+    data));
 }
 
 
@@ -149,26 +114,26 @@ $(document).delegate("#editar_correo_salida", "click", function() {
 $(document).delegate('#eliminar_correo_salida', "click", function() {
   var id = $(this).data('id');
   var salida = getSalida();
-  var datos = [];
+  var data = [];
   salida.forEach(function(element, index) {
     if (element.id != id) {
-      datos.push(element);
+      data.push(element);
     }
   });
-  setSalida(datos);
+  setSalida(data);
   imprimirSalida();
 });
 
 $(document).delegate('#eliminar_correo_enviados', "click", function() {
   var id = $(this).data('id');
   var enviados = getEnviados();
-  var datos = [];
+  var data = [];
   enviados.forEach(function(element, index) {
     if (element.id != id) {
-      datos.push(element);
+      data.push(element);
     }
   });
-  setEnviados(datos);
+  setEnviados(data);
   imprimirEnviados();
 });
 
@@ -179,19 +144,54 @@ function setEditarData() {
   var addres = document.getElementById('destino');
   var topic = document.getElementById('asunto');
   var editor = CKEDITOR.instances.editor;
-  var datos;
+  var data;
 
   salida.forEach(function(element, index) {
     if (element.id == id) {
-      return datos = element;
+      return data = element;
     }
   });
-  addres.value = datos.addres;
-  topic.value = datos.topic;
-  editor.setData(datos.contents);
+  addres.value = data.addres;
+  topic.value = data.topic;
+  editor.setData(data.contents);
 
 }
 
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
+$('#save_client').click(function() {
+  console.log('Sign_up');
+  var mail = document.getElementById("email").value;
+  var pass = document.getElementById("password").value;
+
+  if (mail == '' || pass == '') {
+
+    alert('Fill the field');
+    return;
+  }
+
+  localStorage.setItem("email",mail);
+  localStorage.setItem("password", pass);
+  
+    
+  window.location = "log_in.html"
+
+});
+//////////////////////
+//////////////////////
+$('#iniciar').click(function() {
+
+  var mail = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var logUser = localStorage.getItem("email");
+  var logPass = localStorage.getItem("password");
+  if (mail == logUser && password == logPass) {
+    return location = "menu.html"
+  }
+  window.alert("Wrong password or username");
+});
 
 
 
