@@ -1,3 +1,4 @@
+
 //////////////////////
 //////////////////////
 //////////////////////
@@ -43,40 +44,40 @@ $('#enviar_correo').click(function() {
   var contents = CKEDITOR.instances.editor.getData();
   var enviados = getEnviados();
   var id = enviados.length + 1;
-  var mail = {
+  var correo = {
     "id": id,
     "addres": addres,
     "topic": topic,
     "contents": contents,
-    "date": new Date()
+    "fecha": new Date()
   };
   if (addres != "" && topic != "" && contents != "") {
-    enviados.push(mail);
+    enviados.push(correo);
     setEnviados(enviados);
 
   }
 });
-//Guarda los correos
+
 $('#guardar_correo').click(function() {
   var addres = document.getElementById("correo_destino").value;
   var topic = document.getElementById("asunto").value;
   var contents = CKEDITOR.instances.editor.getData();
   var salida = getSalida();
   var id = salida.length + 1;
-  var mail = {
+  var correo = {
     "id": id,
     "addres": addres,
     "topic": topic,
     "contents": contents,
-    "date": new Date()
+    "fecha": new Date()
   };
   if (addres != "" && topic != "" && contents != "") {
-    salida.push(mail);
+    salida.push(correo);
     setSalida(salida);
 
   }
 });
-//Get y set de enviado 
+
 function getEnviados() {
   var enviados = JSON.parse(localStorage.getItem('enviados'));
   return enviados ? enviados : [];
@@ -86,7 +87,7 @@ function setEnviados(datos) {
   localStorage.setItem('enviados', JSON.stringify(
     datos));
 }
-//Get y set de salida
+
 function getSalida() {
   var salida = JSON.parse(localStorage.getItem('salida'));
   return salida ? salida : [];
@@ -96,7 +97,9 @@ function setSalida(datos) {
   localStorage.setItem('salida', JSON.stringify(
     datos));
 }
-//Imprimir Enviados
+
+
+
 function imprimirEnviados() {
   var enviados = getEnviados();
   var tableBody = $('#tEnviados').find('tbody');
@@ -107,7 +110,7 @@ function imprimirEnviados() {
       '<td id="b1">' + enviado.addres + '</td>' +
       '<td id="b1">' + enviado.topic + '</td>' +
       '<td id="b1">' + enviado.contents + '</td>' +
-      '<td id="b1">' + enviado.date + '</td>' +
+      '<td id="b1">' + enviado.fecha + '</td>' +
       '<td id="b1"><button id="eliminar_correo_enviados" data-id="' +
       enviado.id + '" class="">Eliminar</button></td></tr>';
   });
@@ -117,7 +120,6 @@ function imprimirEnviados() {
 
 }
 
-//Imprimir la salida
 function imprimirSalida() {
   var salida = getSalida();
   var tableBody = $('#tSalida').find('tbody');
@@ -128,7 +130,7 @@ function imprimirSalida() {
       '<td id="b1">' + salida.addres + '</td>' +
       '<td id="b1">' + salida.topic + '</td>' +
       '<td id="b1">' + salida.contents + '</td>' +
-      '<td id="b1">' + salida.date + '</td>' +
+      '<td id="b1">' + salida.fecha + '</td>' +
       '<td id="b1"><button id="editar_correo_salida" data-id="' + salida.id +
       '" class="">Editar</button><button id="eliminar_correo_salida" data-id="' +
       salida.id + '" class="">Eliminar</button></td></tr>';
@@ -138,7 +140,25 @@ function imprimirSalida() {
   tableBody.append(body);
 }
 
-//Eliminar enviado
+
+$(document).delegate("#editar_correo_salida", "click", function() {
+  var id = $(this).data('id');
+  location = location = "editar_correo.html?id=" + id;
+});
+
+$(document).delegate('#eliminar_correo_salida', "click", function() {
+  var id = $(this).data('id');
+  var salida = getSalida();
+  var datos = [];
+  salida.forEach(function(element, index) {
+    if (element.id != id) {
+      datos.push(element);
+    }
+  });
+  setSalida(datos);
+  imprimirSalida();
+});
+
 $(document).delegate('#eliminar_correo_enviados', "click", function() {
   var id = $(this).data('id');
   var enviados = getEnviados();
@@ -152,31 +172,12 @@ $(document).delegate('#eliminar_correo_enviados', "click", function() {
   imprimirEnviados();
 });
 
-//Editar salida
-$(document).delegate("#editar_correo_salida", "click", function() {
-  var id = $(this).data('id');
-  location = location = "editar_correo.html?id=" + id;
-});
-//Eliminar salida
-$(document).delegate('#eliminar_correo_salida', "click", function() {
-  var id = $(this).data('id');
-  var salida = getSalida();
-  var datos = [];
-  salida.forEach(function(element, index) {
-    if (element.id != id) {
-      datos.push(element);
-    }
-  });
-  setSalida(datos);
-  imprimirSalida();
-});
-//Editar el de salida
 function setEditarData() {
 
   var salida = getSalida();
   var id = window.location.search.split('=')[1];
-  var addres = document.getElementById('addres');
-  var topic = document.getElementById('topic');
+  var addres = document.getElementById('destino');
+  var topic = document.getElementById('asunto');
   var editor = CKEDITOR.instances.editor;
   var datos;
 
@@ -190,3 +191,8 @@ function setEditarData() {
   editor.setData(datos.contents);
 
 }
+
+
+
+
+
