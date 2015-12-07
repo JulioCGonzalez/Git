@@ -137,25 +137,7 @@ $(document).delegate('#eliminar_correo_enviados', "click", function() {
   imprimirEnviados();
 });
 
-function setEditarData() {
 
-  var salida = getSalida();
-  var id = window.location.search.split('=')[1];
-  var addres = document.getElementById('destino');
-  var topic = document.getElementById('asunto');
-  var editor = CKEDITOR.instances.editor;
-  var data;
-
-  salida.forEach(function(element, index) {
-    if (element.id == id) {
-      return data = element;
-    }
-  });
-  addres.value = data.addres;
-  topic.value = data.topic;
-  editor.setData(data.contents);
-
-}
 
 //////////////////////
 //////////////////////
@@ -192,7 +174,28 @@ $('#iniciar').click(function() {
   }
   window.alert("Wrong password or username");
 });
+//////////////////////////
+//////////////////////////
+//////////////////////////
+function setEditarData() {
 
+  var salida = getSalida();
+  var id = window.location.search.split('=')[1];
+  var addres = document.getElementById('destino');
+  var topic = document.getElementById('asunto');
+  var editor = CKEDITOR.instances.editor;
+  var data;
+
+  salida.forEach(function(element, index) {
+    if (element.id == id) {
+      return data = element;
+    }
+  });
+  addres.value = data.addres;
+  topic.value = data.topic;
+  editor.setData(data.contents);
+
+}
 
 
 
