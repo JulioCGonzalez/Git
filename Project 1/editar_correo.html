@@ -1,39 +1,41 @@
-<!doctype html>
-<html lang="">
-    <head>
-        <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-        <script>tinymce.init({selector:'textarea'});</script>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Email App</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="ckeditor/ckeditor.js"></script>
-	    <script src="ckeditor/samples/js/sample.js"></script>
-	    <link rel="stylesheet" href="ckeditor/samples/css/samples.css">
-	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/materialize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-            <nav class="indigo darken-1">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Editar correo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="menu/css/reset.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="menu/css/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="menu/css/grid.css" type="text/css" media="screen">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet'
+	type='text/css'>
+	<link type="text/css" rel="stylesheet" href="css/materialize/css/materialize.css"
+	/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="ckeditor/ckeditor.js"></script>
+	<script src="ckeditor/samples/js/sample.js"></script>
+	<link rel="stylesheet" href="ckeditor/samples/css/samples.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="css/materialize/js/materialize.min.js"></script>
+
+</head>
+
+<body id="page1 main">
+	<nav class="indigo darken-1">
             <div class="nav-wrapper">
             <a href="#" class="brand-logo">Webmail</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="crear_correo.html">Crear Correo</a></li>
             </ul>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="salida.html">Salida</a></li>
-            </ul>
+           
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="enviados.html">Enviados</a></li>
             </ul>
             </div>
-            </nav>
             
-            <center>
+            </nav>
+
+		<center>
 		<div class="row" id="para-asunto">
 			<div class="row">
 				<div class="input-field col s12">
@@ -62,18 +64,15 @@
 				initSample();
 			</script>
 		</main>
-	</center>     
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
-        <script src="js/materialize.min.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-	   CKEDITOR.on("instanceReady", function()
-	   {
+	</center>
+</body>
+<script type="text/javascript" src="js/application.js"></script>
+<script>
+	CKEDITOR.on("instanceReady", function()
+	{
 		setEditarData();
-	   })
+	})
 </script>
 
-    </body>
 </html>
+
