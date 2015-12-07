@@ -122,9 +122,7 @@ function imprimirSalida() {
       '<td id="b1">' + salida.asunto + '</td>' +
       '<td id="b1">' + salida.contenido + '</td>' +
       '<td id="b1">' + salida.fecha + '</td>' +
-      '<td id="b1"><button id="editar_correo_salida" data-id="' + salida.id +
-      '" class="">Editar</button><button id="eliminar_correo_salida" data-id="' +
-      salida.id + '" class="">Eliminar</button></td></tr>';
+      '<td id="b1">' + salida.id + '" class="">Eliminar</button></td></tr>';
   });
 
   tableBody.empty();
@@ -182,7 +180,6 @@ function setEditarData() {
   editor.setData(datos.contenido);
 
 }
-
 //var users = JSON.parse(localStorage.getItem('users'));
 
 //if (!users) {

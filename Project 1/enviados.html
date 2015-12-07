@@ -1,39 +1,53 @@
-<!doctype html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+
+<head>
+	    <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Email App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
+</head>
 
-            <nav class="indigo darken-1">
-            <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Webmail</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="crear_correo.html">Crear Correo</a></li>
-            </ul>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="salida.html">Salida</a></li>
-                </ul>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="enviados.html">Enviados</a></li>
-            </ul>
-            </div>
-            
-            </nav>
-           
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
-        <script src="js/materialize.min.js"></script>
-        <script src="js/main.js"></script>
+<body id="page1">
+	<nav class="indigo darken-1">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">Webmail</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="salida.html" id="guardar_correo"> Salida</a></li>
+          <li><a href="crear_correo.html" id="crear"> Crear Correo</a></li>
+        </ul>
+      </div>
+	</nav>
+    <center>
+		<div id="div-table">
+			<table id="tEnviados" class="striped">
+				<thead>
+					<tr>
+						<th id="b2">Destino</th>
+						<th id="b2">Asunto</th>
+						<th id="b2">Mensaje</th>
+						<th id="b2">Fecha</th>
+						<th id="b2">Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
+<script src="js/materialize.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/application.js"></script>
+<script>
+	imprimirEnviados();
+</script>
 
-    </body>
 </html>

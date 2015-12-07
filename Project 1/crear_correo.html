@@ -1,7 +1,7 @@
-<!doctype html>
-<html lang="">
-    <head>
-        <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+   <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
         <script>tinymce.init({selector:'textarea'});</script>
         
         <meta charset="utf-8">
@@ -9,42 +9,46 @@
         <title>Email App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="ckeditor/samples/css/samples.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/main.css">
-        
-    </head>
-    <body>
+        <script src="ckeditor/ckeditor.js"></script>
+  <script src="ckeditor/samples/js/sample.js"></script>
+  </head>
+  <body id="page1 main">
+    <nav class="indigo darken-1">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Webmail</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="salida.html" id="guardar_correo"> Guardar</a></li>
+          <li><a href="enviados.html" id="enviar_correo"> Enviar</a></li>
+        </ul>
+      </div>
+    </nav>
+   
+    <center>
+    <div class="row" id="para-asunto">
+      <form class="col s12">
 
-        <nav class="indigo darken-1">
-            <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Webmail</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="crear_correo.html">Crear Correo</a></li>
-            </ul>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="salida.html">Salida</a></li>
-            </ul>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="enviados.html">Enviados</a></li>
-            </ul>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="correo_destino" type="email" class="validate">
+            <label for="email">Para</label>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="asunto" type="text" class="validate">
+              <label for="password">Asunto</label>
             </div>
-            </nav>
-            <tr>
-            <td>E-mail:</td>
-            <td><input type="email" id="email" name="correo" placeholder="Email" required></td>
-            </tr>
-
-            <tr>
-            <td>Asunto:</td>
-            <td><textarea cols="17" rows="6"  id="asunto" name="contenido" placeholder="Asunto" required></textarea></td>
-            </tr>
-           
-            <tr>
-            <td>Su mensaje:</td>
-            </tr>
+          </div>
+        </div>
+      </form>
+    </div>
+    <main>
+           <!--<label for="contenido">Contenido</label>
             <script type="text/javascript">
             tinymce.init({
             selector: "textarea",
@@ -56,19 +60,28 @@
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent             indent | link image"
             });
             </script>
-            
-                    
             <form method="post" action="dump.php">
             <textarea id="mensaje" placeholder="Mensaje" name="content"></textarea>
-            </form>
-            
-            <div class="col s12">
-            <a href="enviados.html" id="boton-guardar" class="waves-effect waves-light btn orange darken-2"><i class="material-icons                                   right">play_arrow</i>Enviar</a>                         
+            </form>-->
+            <div id="main-editor">
+            <div class="grid-container">
+            <div class="grid-width-100">
+            <div id="editor">
+
             </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
-        <script src="js/materialize.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/mail.js"></script>
-    </body>
+        </div>
+      </div>
+    </div>
+    <script>
+    initSample();
+    </script>
+    </main>
+    </center>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/application.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </html>
